@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+<main>
+
+    <div class="monitor-form">
+        <h2>Add Monitor!</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button class="add-btn" type="submit">Add Monitor</button>
+        </form>
+
+    </div>
+
+</main>
+{% endblock %}

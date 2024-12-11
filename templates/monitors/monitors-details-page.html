@@ -1,0 +1,155 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block page_content %}
+    <div class="main-details">
+        <div class="card">
+            <div class="other">
+                <section class="every">
+            <span class="edit-nn-delete">
+            <p>{{ monitor.name }}</p>
+                {% if monitor.user.email == request.user.email %}
+                    <span class="edit-n-delete">
+                <a href="{% url 'monitor edit' monitor.slug %}">
+                    <img class="edit-img" src="/static/images/edit-pen-icon-6.jpg" alt="edit button">
+                </a>
+                <a href="{% url 'monitor delete' monitor.slug %}">
+                    <img class="bin-img" src="/static/images/icon-remove-22.jpg" alt="bin button">
+                </a>
+                </span>
+                    </span>
+                {% endif %}
+                    <div class="top">
+                        <div class="userDetails">
+                            <h3>
+                                <a href="{% url 'profile details' monitor.user.id %}">
+                                    {{ monitor.user.full_name }}
+                                </a>
+                                <br>
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="characteristics">
+
+                        <a class="ads">
+                            <p>
+                                Price:
+                                {{ monitor.price }} leva.
+                            </p>
+                        </a>
+                        <br>
+
+                        <a class="ads">
+                            <p>
+                                Brand:
+                                {{ monitor.brand }}
+                            </p>
+                        </a>
+                        <br>
+
+                        <a class="ads">
+                            <p>
+                                Size:
+                                {{ monitor.size }} inches.
+                            </p>
+                        </a>
+                        <br>
+
+                        <a class="ads">
+                            <p>
+                                Refresh rate:
+                                {{ monitor.refresh_rate }} hertz.
+                            </p>
+                        </a>
+                        <br>
+
+                        <a class="ads">
+                            <p>
+                                Brightness:
+                                {{ monitor.brightness }} cd/m².
+                            </p>
+                        </a>
+                        <br>
+
+                        <a class="ads">
+                            <p>
+                                Resolution:
+                                {{ monitor.resolution }}.
+                            </p>
+                        </a>
+                        <br>
+
+                        {% if monitor.extra_characteristics %}
+                            <a class="ads" id="extra">
+                                <p>
+                                    Extra characteristics:
+                                    {{ monitor.extra_characteristics }}
+                                </p>
+                            </a>
+                        {% endif %}
+                        <br>
+                    </div>
+                    <section class="date-pub">
+
+                        <h5>{{ monitor.date_of_publication }}</h5>
+                    </section>
+                </section>
+                <div class="imgBx" id="{{ monitor.id }}">
+                    <img src="{{ monitor.photo.url }}" alt="post">
+                </div>
+            </div>
+            <div class="review">
+                {% if request.user.is_authenticated %}
+                    <form method="post" action="{% url 'review' monitor.id %}">
+                        {% csrf_token %}
+                        {{ review_form }}
+                        <button type="submit">Review</button>
+                    </form>
+                {% else %}
+                    <div class="review">
+                    <form method="post">
+                        <label for="id_body">Review:</label>
+                        <textarea name="body" cols="40" rows="10"
+                                  placeholder="Register or Login to leave a review!" maxlength="300" readonly
+                                  required="" id="id_body"></textarea>
+                    </div>
+                    </form>
+                {% endif %}
+                <div class="review-for">
+                    <h4>Reviews:</h4>
+                    {% for review in reviews %}
+                        <div class="reviews">
+                            <div class="rev-1">
+                            <a class="user-details" href="{% url 'profile details' review.user.id %}">
+                                {{ review.user.full_name }}
+                            </a>
+                            <br>
+                            <a>{{ review.review_text }}</a>
+                            </div>
+                            <div class="rev-2">
+                            <b>{{ review.date_time_of_publication }}</b>
+                            {% if review.user == request.user %}
+                                <div class="edit-n-delete">
+                                            <a
+                                               href="{% url 'edit review' monitor.slug review.id %}">
+                                                <img class="edit-img" src="/static/images/edit-pen-icon-6.jpg"
+                                                     alt="edit button">
+                                            </a>
+                                            <a
+                                               href="{% url 'delete review' monitor.slug review.id %}">
+                                                <img class="bin-img" src="/static/images/icon-remove-22.jpg"
+                                                     alt="bin button">
+                                            </a>
+                                </div>
+                            {% endif %}
+                            <br>
+                            <br>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

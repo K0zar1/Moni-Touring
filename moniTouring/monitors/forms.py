@@ -9,70 +9,69 @@ from moniTouring.monitors.models import Monitor
 class BaseForm(forms.ModelForm):
     class Meta:
         model = Monitor
-        fields = ['name', 'photo', 'time_to_cook', 'difficulty', 'ingredients', 'nutrition', 'cooking_method', 'number_of_portions']
+        fields = ['name', 'photo', 'price', 'brand', 'size', 'refresh_rate', 'brightness', 'resolution', 'extra_characteristics',]
 
         widgets = {
             'name': forms.TextInput(
                 attrs={
-                    'placeholder': 'Recipe name',
+                    'placeholder': 'Monitor name',
                 }
             ),
-            # 'photo': forms.ImageField(
-            #     attrs={
-            #         'placeholder': 'Link to photo',
-            #     }
-            # ),
-            'time_to_cook': forms.NumberInput(
+            'price': forms.NumberInput(
                 attrs={
-                    'placeholder': 'Cooking time',
+                    'placeholder': 'Price',
                 }
             ),
-            'ingredients': forms.Textarea(
+            'brand': forms.Textarea(
                 attrs={
-                    'placeholder': 'Ingredients',
+                    'placeholder': 'Brand',
                 }
             ),
-            'nutrition': forms.Textarea(
+            'size': forms.NumberInput(
                 attrs={
-                    'placeholder': 'Nutrition',
+                    'placeholder': 'Inches',
                 }
             ),
-            'cooking_method': forms.Textarea(
+            'refresh_rate': forms.NumberInput(
                 attrs={
-                    'placeholder': 'Cooking method',
+                    'placeholder': 'Hertz',
                 }
             ),
-            'number_of_portions': forms.NumberInput(
+            'brightness': forms.NumberInput(
                 attrs={
-                    'placeholder': 'Number of portions',
+                    'placeholder': 'Brightness',
+                }
+            ),
+            'resolution': forms.Textarea(
+                attrs={
+                    'placeholder': 'Resolution',
+                }
+            ),
+            'extra_characteristics': forms.Textarea(
+                attrs={
+                    'placeholder': 'Extra details',
                 }
             ),
         }
         labels = {
-            'name': 'Recipe name',
-            'photo': 'Photo',
-            'ingredients': 'Ingredients',
-            'nutrition': 'Nutrition',
-            'cooking_method': 'Method of cooking',
-            'number_of_portions': 'Number of portions',
-            'difficulty': 'Difficulty',
+            'extra_characteristics': 'Extra',
         }
 
 
-class RecipeAddForm(BaseForm):
+class MonitorAddForm(BaseForm):
     pass
 
 
-class RecipeEditForm(BaseForm):
+class MonitorEditForm(BaseForm):
     class Meta:
         model = Monitor
-        fields = ['name', 'photo', 'description', 'time_to_cook', 'ingredients', 'nutrition', 'cooking_method', 'number_of_portions']
+        fields = ['name', 'photo', 'price', 'brand', 'size', 'refresh_rate', 'brightness', 'resolution', 'extra_characteristics',]
 
 
-class RecipeDeleteForm(BaseForm):
+class MonitorDeleteForm(BaseForm):
     class Meta:
         model = Monitor
-        fields = ['name', 'time_to_cook', 'ingredients', 'nutrition', 'cooking_method', 'number_of_portions']
+        fields = ['name', 'photo', 'price', 'brand', 'size', 'refresh_rate', 'brightness', 'resolution', 'extra_characteristics',]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

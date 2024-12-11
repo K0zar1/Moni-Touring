@@ -63,12 +63,13 @@ class UserDeleteView(views.DeleteView):  # doesnt work
     success_url = reverse_lazy('index')
 
     # def post(self, request, *args, **kwargs):
-        # user_to_delete = self.get_object()
-        # if user_to_delete == request.user:
-        #     return redirect('profile details', pk=request.user.pk)
-        #
-        # user_to_delete.delete()
-        # return redirect(self.success_url)
+    #     user_to_delete = self.get_object()
+    #     if user_to_delete == request.user:
+    #         return redirect('profile details', pk=request.user.pk)
+    #
+    #     user_to_delete.delete()
+    #     return redirect(self.success_url)
 
     def post(self, *args, pk):
         self.request.user.delete()
+        return redirect(self.success_url)

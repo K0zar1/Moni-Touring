@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: rgb(176, 122, 66);
+    min-height: 100vh;
+}
+
+.error {
+    color: red;
+}
+
+.nav-group {
+    display: flex;
+    gap: 5em;
+}
+
+.navbar {
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 1em;
+}
+
+.container {
+    padding: 15px 0;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container a {
+    color: #000000;
+}
+
+.nav-group{
+    letter-spacing: 0.05em;
+}
+
+.errorlist li {
+    width: 200px;
+    color: red;
+    list-style-type: none;
+}
+
+.container .logo {
+    display: flex;
+    cursor: pointer;
+}
+.searchbar {
+    display: flex;
+    justify-content: center;
+    margin-block: 1em 2em;
+}
+
+.searchbar label {
+    display: none;
+}
+
+.searchbar input {
+    width: 35em;
+    background-color: white; /*#fcf8f8*/
+    padding: 5px;
+    text-indent: 10px;
+    outline: none;
+    border: 3px solid rgb(73, 70, 70);
+    border-radius: 20px;
+    color: rgb(77, 77, 77);
+}
+
+.searchbar button {
+    position: relative;
+    left: -2.2em;
+    top: 0.1em;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.searchbar input::placeholder {
+    font-weight: lighter;
+    color: rgb(172, 172, 172);
+}
+
+.home {
+    font-size: 40px;
+    margin: 10px 0 0 3px;
+    color: black;
+    font-family: 'Elephant', cursive;
+}
+
+.nav-links {
+    font-weight: lighter;
+    color: rgb(172, 172, 172);
+}
+
+.nav-group .nav-item {
+    list-style-type: none;
+    margin: 0 8px;
+}
+
+.nav-group .nav-item a {
+    font-family: 'Franklin Gothic Medium', fantasy;
+    font-size: 28px;
+    display: block;
+    color: black;
+}
+
+main {
+    width: 100%;
+    align-items: center;
+    justify-self: left;
+}
+
+.main {
+    display: flex;
+}
+
+main .container {
+    position: relative;
+    margin-top: 60px;
+    width: 75%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4em;
+    margin-left: 3.5em;
+}
+
+ .card{
+    display: flex;
+     flex-direction: column;
+     padding: 1em;
+     width: 25em;
+     height: 32em;
+    background-color: #fdcdaf;
+}
+
+.mntr-details{
+    display: flex;
+    gap: 10px;
+    font-family: 'Franklin Gothic Medium', fantasy;
+    height: 100px;
+}
+
+.dot {
+    transform: scale(0.6);
+    cursor: pointer;
+}
+
+.mntr-img img{
+     width: 100%;          /* Make image take the full width of its container */
+    height: 377.6px;
+    max-width: 368px;
+    max-height: 377.6px;
+    object-fit: cover;
+}
+
+.mntr-img{
+    width: 368px;
+    height: 377.6px;
+    overflow: hidden;
+}
+
+.top {
+    padding: 0em;
+}
+
+.mntr-name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.mntr-brand{
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+
+.mntr-usr h3{
+    text-align: right;
+}
+
+.mntr-usr h3 a {
+    color: #ffffff;
+}
+
+.mntr-size,
+.mntr-refresh,
+.mntr-bright,
+.mntr-resolution{
+    align-content: center;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.bottom2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.bottom2 div {
+    flex: 0 0 50%;
+    box-sizing: border-box;
+}
+
+.mntr-details a{
+    align-content: center;
+    padding-bottom: 0.6em;
+    text-align: center;
+}
+
+.mntr-details a h4{
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-weight: 800;
+    color: #0079e5;
+    text-shadow: 0 0 5px rgba(255, 102, 0, 0.7);
+}
+
+a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+     {
+        width: 100%;
+        background: #ffffff;
+    }
+
+    .col-3 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100% !important;
+    }
+
+    .navbar .container {
+        padding: 15px 10px !important;
+    }
+
+     {
+        margin-top: 4px;
+        min-width: 100%;
+    }
+
+    .statuses {
+        margin-bottom: 0;
+    }
+
+     .card {
+        margin-bottom: 0;
+        width: 100%;
+        border: none;
+    }
+
+    .imgBx {
+        position: relative;
+        width: 100%;
+        min-height: 400px;
+        margin: 10px 0 15px;
+    }
+
+}
+
+.footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer .footer-section {
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+    font-family: sans-serif;
+    z-index: -2;
+}
+
+.footer a:hover {
+    color: #ff0000;
+}
+
+.rec {
+    position: relative;
+    /*left: 5px;*/
+    top: -55px;
+    font-family: Elephant, cursive;
+    font-size: 20px;
+}
+
+.review-form form button {
+    color: rgba(0, 68, 255, 0.8);
+    font-weight: 600;
+    font-size: 17px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    padding: 1em;
+}
+
+.imgBx img {
+    width: 100px;
+    height: 100px;
+}

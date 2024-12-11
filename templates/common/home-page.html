@@ -1,0 +1,79 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+        <form class="searchbar" method="post">
+            {% csrf_token %}
+            {{ search_form }}
+            <button>
+                <img src="{% static 'images/search.png' %}" height="18" alt="img2">
+            </button>
+        </form>
+    <div class="main">
+
+    {% for monitor in all_monitors %}
+        <div class="card">
+            <div class="top">
+                <div class="mntr-img" id="{{ monitor.id }}">
+                    <img src="{{ monitor.photo.url }}" alt="post" class="cover">
+                </div>
+            </div>
+
+            <div class="mntr-details">
+            <div class="bottom1">
+                <div class="mntr-name">
+                    {{ monitor.name|truncatechars:16 }}
+                </div>
+
+                <div class="mntr-brand">
+                    <a>{{ monitor.brand|truncatechars:15 }}</a>
+                </div>
+            </div>
+            <div class="bottom2">
+                <div class="mntr-size">
+                <a>{{ monitor.size|truncatechars:15 }} inches</a>
+            </div>
+            <div class="mntr-refresh">
+                <a>{{ monitor.refresh_rate|truncatechars:15 }} hertz</a>
+            </div>
+            <div class="mntr-bright">
+                <a>{{ monitor.brightness|truncatechars:10 }} cd/m²</a>
+            </div>
+            <div class="mntr-resolution">
+                <a>{{ monitor.resolution|truncatechars:15 }}</a>
+            </div>
+            </div>
+
+            <a href="{% url 'monitor details' monitor.slug %}">
+                <h4 class="details">See details</h4>
+            </a>
+            </div>
+
+            <div class="mntr-usr">
+                <h3>
+                    <a href="{% url 'profile details' monitor.user.id %}">
+                        {{ monitor.user.full_name }}
+                    </a>
+                </h3>
+            </div>
+            
+{#            <div class="addComments">#}
+{#                {% if request.user.is_authenticated %}#}
+{#                    <div class="review-form">#}
+{#                        <form method="post" action="{% url 'review' monitor.id %}">#}
+{#                            {% csrf_token %}#}
+{#                            {{ review_form }}#}
+{#                            <button type="submit">Review</button>#}
+{#                        </form>#}
+{#                    </div>#}
+{#                {% else %}#}
+{#                    <form method="post" action="#">#}
+{#                        <label for="id_body">Body:</label>#}
+{#                        <textarea name="body" cols="40" rows="10" placeholder="Register or Login to leave a review!" maxlength="300" readonly #}
+{#                                required="" id="id_body"></textarea>#}
+{#                    </form>#}
+{#                {% endif %}#}
+{#            </div>#}
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

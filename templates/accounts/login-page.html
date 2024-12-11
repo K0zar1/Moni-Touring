@@ -9,8 +9,8 @@
             <h1>Moni-Touring</h1>
 
             <form action="{% url 'login user' %}" method="post">
-                {{ form.username|placeholder:'Enter username:' }} {# error-pop-up #}
-                {{ form.password|placeholder:'Enter password:' }} {# error-pop-up #}
+                {{ form.username|placeholder:'Enter username:' }}
+                {{ form.password|placeholder:'Enter password:' }}
 
                 <input type="hidden" value="{{ next }}" name="next"/>
 

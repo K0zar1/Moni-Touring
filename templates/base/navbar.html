@@ -1,14 +1,10 @@
 <header>
     <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="{% url 'index' %}">
-                </a>
-
+            <span class="logo">
                 <a class="home" href="{% url 'index' %}">
                     <i>Moni-Touring</i>
                 </a>
-            </div>
+            </span>
 
             <div class="nav-links">
                 <ul class="nav-group">
@@ -20,15 +16,22 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{% url 'monitor details' request.user.pk %}">
+                            <a href="{% url 'profile details' request.user.pk %}">
                                 <i>Profile</i>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{% url 'logout user' %}">
-                                <i>Logout</i>
-                            </a>
+{#                            <a href="{% url 'logout user' %}">#}
+{#                                <i>Logout</i>#}
+{#                            </a>#}
+                                <form method="POST" action="{% url 'logout user' %}">
+                                {% csrf_token %}
+                                
+                                    <button type="submit" class="btn btn-link">
+                                        <i>Logout</i>
+                                    </button>
+                            </form>
                         </li>
                     {% else %}
                         <li class="nav-item">
@@ -45,6 +48,5 @@
                     {% endif %}
                 </ul>
             </div>
-        </div>
     </nav>
 </header>

@@ -1,0 +1,9 @@
+@import './home.css';
+@import './login.css';
+@import 'profile-functions.css';
+@import 'monitor_functions.css';
+@import './profile.css';
+@import 'monitor-profile.css';
+@import "./profile_details.css";
+@import "./404.css";
+@import "home2.css";

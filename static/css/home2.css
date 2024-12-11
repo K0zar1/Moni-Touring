@@ -1,0 +1,140 @@
+.main-details {
+    display: flex;
+    justify-content: center;
+    /*background-color: rgba(255, 221, 170, 0.96);*/
+}
+
+.main-details .card {
+    display: flex;
+    justify-content: space-between;
+    min-width: 50em;
+    min-height: 38em;
+    height: initial;
+}
+
+.main-details .card .other{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.edit-n-delete a img {
+    width: 30px;
+    height: auto;
+}
+
+.edit-nn-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.edit-nn-delete p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.edit-nn-delete .characteristics .ads p {
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.characteristics {
+    flex-direction: column;
+}
+
+.main-details .card .imgBx img {
+    width: 30em;
+    height: 378px;
+}
+
+.review {
+    margin-top: 3em;
+}
+
+.review form div textarea{
+    resize: none;
+    width: 100%;
+    height: 5em;
+    padding: 3px 0 0 3px;
+    border-color: #9a8888;
+    border-radius: 10px;
+}
+
+.review button{
+    padding: 0.3em 1em;
+    border-radius: 10px;
+    border: 1px solid #ad9e9e;
+    cursor: pointer;
+}
+
+.review-for {
+    margin-top: 3em;
+}
+
+.user-details {
+    font-weight: bold;
+}
+
+.reviews {
+    border: 3px solid grey;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviews .edit-n-delete {
+    display: flex;
+    justify-content: end;
+    gap: 1em;
+}
+
+#wtf {
+    width: 40%;
+    margin-inline: auto;
+    margin-top: 15em;
+    margin-bottom: 1em;
+}
+
+#wtf input {
+    width: 50em;
+}
+
+#wtff {
+    width: 40%;
+    margin-inline: auto;
+    margin-top: 7em;
+    margin-bottom: 1em;
+}
+
+.profile-data {
+    background-color: #fdcdaf;
+    padding: 3em 3em 15.8em 3em;
+}
+
+.delete-profile .sure-buttons{
+    padding-right: 55em;
+}
+
+.delete-profile h1{
+    left: 0;
+    padding-left: 19em;
+}
+
+.nav-item form button{
+    font-family: 'Franklin Gothic Medium', fantasy;
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+}
+
+#extra p {
+    max-width: 271.11px;
+    white-space: normal;
+    word-wrap: break-word;
+}

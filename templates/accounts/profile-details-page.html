@@ -9,8 +9,8 @@
             <div class="profile_img">
                 <div class="image">
 
-                    {% if ironrecipeuser.profile_picture %}
-                        <img src="{{ ironrecipeuser.profile_picture }}" alt="img8">
+                    {% if monitouringuser.profile_picture %}
+                        <img src="{{ monitouringuser.profile_picture }}" alt="img8">
                     {% else %}
                         <img src="{% static 'images/user.png' %}" alt="img8">
                     {% endif %}
@@ -18,14 +18,14 @@
             </div>
             <div class="personal">
                 <div class="eedit">
-                    <p>{{ ironrecipeuser.username }}</p>
+                    <p>{{ monitouringuser.username }}</p>
 
-                    {% if request.user.email == ironrecipeuser.email %}
-{#                    <a href="{% url 'profile edit' ironrecipeuser.pk %}">#}
-{#                        <img class="edit-img" src="{% static 'images/edit-pen-icon-6.jpg' %}" alt="edit button">#}
-{#                    </a>#}
+                    {% if request.user.email == monitouringuser.email %}
+                    <a href="{% url 'profile edit' monitouringuser.pk %}">
+                        <img class="edit-img" src="{% static 'images/edit-pen-icon-6.jpg' %}" alt="edit button">
+                    </a>
 
-                    <a href="{% url 'profile delete' ironrecipeuser.pk %}">
+                    <a href="{% url 'profile delete' monitouringuser.pk %}">
                         <img class="bin-img" src="{% static 'images/icon-remove-22.jpg' %}" alt="bin button">
                     </a>
                     {% endif %}
@@ -33,15 +33,12 @@
                 </div>
                 <div class="data">
 
-                    <span>{{ recipes.count }}</span>
-                    <p>total recipes</p>
-
-                    <span>{{ total_like_count }}</span>
-                    <p>likes</p>
+                    <span>{{ monitors.count }}</span>
+                    <p>monitors uploaded</p>
                 </div>
-                <h3 class="names">{{ ironrecipeuser.full_name }}</h3>
+                <h3 class="names">{{ monitouringuser.full_name }}</h3>
 
-                <p class="email">{{ ironrecipeuser.email }}</p>
+                <p class="email">{{ monitouringuser.email }}</p>
 
             </div>
         </div>
@@ -49,15 +46,15 @@
 
         <div class="pet-photos">
             {% if page_obj.object_list %}
-                {% for recipe in page_obj.object_list %}
-                <a href="{% url 'recipe details' recipe.slug %}">
-                    <img src="{{ recipe.photo.url }}"
+                {% for monitor in page_obj.object_list %}
+                <a href="{% url 'monitor details' monitor.slug %}">
+                    <img src="{{ monitor.photo }}"
                         alt="pet img">
                 </a>
             {% endfor %}
             {% else %}
                 <h2 style="position: absolute; left: 940px; top: 360px; font-family: 'Elephant', cursive">
-                    No Recipes!
+                    No Monitors!
                 </h2>
             {% endif %}
 

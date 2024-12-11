@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <div class="edit-deletee edit-photo" id="wtf">
+        <h2>Delete Review</h2>
+        <form action="{% url 'delete review' monitor.slug review.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button class="delete-btn" type="submit">Delete</button>
+
+            <a class="btn btn-primary" href="javascript:history.back()">
+                <button class="edit-btn" type="button">Go back</button>
+            </a>
+        </form>
+    </div>
+{% endblock %}
